@@ -1,0 +1,28 @@
+/index.txt
+Content-Type: text/plain
+Content-Length: 14
+Server: nginx/1.2.2
+
+/image/web_technologies.png
+Content-Type: image/png
+Content-Length: 335525
+Server: nginx/1.2.2
+
+/media/Water.mp4
+Content-Type: application/octet-stream
+Content-Length: 1137202
+Server: nginx/1.2.2
+
+
+
+a. код ошибки: 404 Not Found. Означает: ресурс не найден. Надо разместить данный файл на сервере. 
+b. код: 200 OK (from disk cache). Означает: запрос выполнен успешно. Описывает специальное поведение сервера. 
+c. код: 302 Found. Означает: ресурс отстутствует временно (запрошенный ресурс был временно перемещен). Описывает специальное поведение сервера. 
+d. код ошибки: 400 Work hard! Означает: плохой запрос от клиента. Выполнить запрос http://localhost/lw1/javascript_is_a_client_side_language.php?how_to_work=hard
+
+
+
+Параметр charset у заголовка Content-Type определяет используемую кодировку.
+Если charset будет не задан, то может произойти разногласие в кодировках, так как браузер, вероятно, не сможет правильно определить кодировку, то есть текст будет нечитаемый.
+Если charset будет задан не верно, то произойдет разногласие в кодировках, и текст будет нечитаемый.
+В примере  http://localhost/lw1/all_begin_from_http.html отдается нечитаемый текст, так как файл находится в кодировке utf-8, чтобы это исправить надо указать charset='utf-8' в теге <meta>.
