@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hello_world", "hello_world\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "print_args", "print_args\print_args.csproj", "{365417D2-5AA0-46F8-8168-0155DE13E576}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "remove_duplicates", "remove_duplicates\remove_duplicates.csproj", "{D7A1EE08-B448-4A20-974E-CBA4E9D8A8DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{365417D2-5AA0-46F8-8168-0155DE13E576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{365417D2-5AA0-46F8-8168-0155DE13E576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{365417D2-5AA0-46F8-8168-0155DE13E576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A1EE08-B448-4A20-974E-CBA4E9D8A8DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A1EE08-B448-4A20-974E-CBA4E9D8A8DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A1EE08-B448-4A20-974E-CBA4E9D8A8DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A1EE08-B448-4A20-974E-CBA4E9D8A8DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
