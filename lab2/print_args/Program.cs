@@ -13,7 +13,6 @@ namespace print_args
                 foreach (string arg in args)
                 {
                     Console.Write($"{arg} ");
-
                 }
             }
             else
