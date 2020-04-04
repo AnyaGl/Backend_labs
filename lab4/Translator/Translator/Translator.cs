@@ -32,11 +32,27 @@ namespace Translator
             }
             return vocabulary;
         }
-        public string GetTranslation(string word)
-        { 
-            return Translate(word.ToLower());
+        bool IsEnWord(string word)
+        {
+            foreach (char ch in word)
+            {
+                if ((ch > 'z' || ch < 'a') && ch != ' ')
+                {
+                    return false;
+                }
+            }
+            return true;
         }
-        string Translate(string word)
+        public string GetTranslation(string word)
+        {
+            word = word.ToLower();
+            if (IsEnWord(word))
+            {
+                return TranslateEnWord(word);
+            }
+            return TranslateRusWord(word);            
+        }
+        string TranslateEnWord(string word)
         {
             try
             {
@@ -47,7 +63,11 @@ namespace Translator
                 return null;
             }
         }
-        
-        
+        string TranslateRusWord(string word)
+        {
+            return vocabulary.Where(x => x.Value == word).FirstOrDefault().Key;
+        }
+
+
     }
 }
