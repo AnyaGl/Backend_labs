@@ -1,0 +1,4 @@
+cat~кот
+ball~мяч
+meat~мясо
+the red square~красная площадь
