@@ -1,3 +1,4 @@
+-- 2. Добавление таблиц в БД
 CREATE TABLE dvd (
 	dvd_id INTEGER PRIMARY KEY AUTOINCREMENT,
 	title TEXT NOT NULL,
@@ -18,6 +19,7 @@ CREATE TABLE offer (
 	return_date TEXT
 );
 
+-- 3. Заполнение таблиц данными
 INSERT INTO dvd (title, production_year) VALUES ('Золушка', date('2010-01-01'));
 INSERT INTO dvd (title, production_year) VALUES ('Алиса в стране чудес', date('2010-01-01'));
 INSERT INTO dvd (title, production_year) VALUES ('Ёлки', date('2012-01-01'));
@@ -45,12 +47,14 @@ INSERT INTO offer (dvd_id, customer_id, offer_date) VALUES (9, 3, date('2020-04-
 INSERT INTO offer (dvd_id, customer_id, offer_date) VALUES (7, 2, date('2020-03-08'));
 INSERT INTO offer (dvd_id, customer_id, offer_date) VALUES (8, 2, date('2020-03-08'));
 INSERT INTO offer (dvd_id, customer_id, offer_date) VALUES (6, 4, date('2019-12-01'));
-                  
+               
+-- 4. Получение списка всех DVD, год выпуска которых 2010, отсортированных в алфавитном порядке по названию DVD.			   
 SELECT dvd_id, title, strftime('%Y', production_year) 
 FROM dvd 
 WHERE strftime('%Y', production_year) = '2010' 
 ORDER BY title;
 
+--5. Получение списка DVD дисков, которые в настоящее время находятся у клиентов.
 SELECT dvd_id, title, strftime('%Y', production_year)  
 FROM dvd
 WHERE EXISTS (
@@ -58,6 +62,8 @@ WHERE EXISTS (
     WHERE dvd.dvd_id = offer.dvd_id AND offer.return_date IS NULL
 );
 
+-- 6. Получение списка клиентов, которые брали какие-либо DVD диски в текущем году. 
+-- В результатах запроса необходимо также отразить какие диски брали клиенты.
 SELECT customer.first_name, customer.last_name, customer.passport_code, customer.registration_date,
        dvd.title, strftime('%Y', dvd.production_year) 
 FROM customer 
