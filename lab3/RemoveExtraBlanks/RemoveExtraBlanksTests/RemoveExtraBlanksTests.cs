@@ -14,29 +14,29 @@ namespace RemoveExtraBlanksTests
         [TestMethod]
         public void RemoveExtraBlanks_StringWithExtraSpaces_StringWithoutExtraSpacesReturned()
         {
-            string str = "   привет    мир        ";
-            string resultStr = "привет мир";
+            string str = "   РїСЂРёРІРµС‚    РјРёСЂ        ";
+            string resultStr = "РїСЂРёРІРµС‚ РјРёСЂ";
             Assert.AreEqual(resultStr, RemoveExtraBlanksLib.RemoveExtraBlanks(str));
         }
         [TestMethod]
         public void RemoveExtraBlanks_StringWithExtraTabs_StringWithoutExtraTabsReturned()
         {
-            string str = "\t\tпривет\t\t\tмир\t";
-            string resultStr = "привет\tмир";
+            string str = "\t\tРїСЂРёРІРµС‚\t\t\tРјРёСЂ\t";
+            string resultStr = "РїСЂРёРІРµС‚\tРјРёСЂ";
             Assert.AreEqual(resultStr, RemoveExtraBlanksLib.RemoveExtraBlanks(str));
         }
         [TestMethod]
         public void RemoveExtraBlanks_StringWithExtraBlanks_StringWithoutExtraBlanksReturned()
         {
-            string str = "\t \tпривет\t   \t мир   \t!   ";
-            string resultStr = "привет\tмир !";
+            string str = "\t \tРїСЂРёРІРµС‚\t   \t РјРёСЂ   \t!   ";
+            string resultStr = "РїСЂРёРІРµС‚\tРјРёСЂ !";
             Assert.AreEqual(resultStr, RemoveExtraBlanksLib.RemoveExtraBlanks(str));
         }
         [TestMethod]
         public void RemoveExtraBlanks_StringWithoutExtraBlanks_SameStringReturned()
         {
-            string str = "привет мир";
-            string resultStr = "привет мир";
+            string str = "РїСЂРёРІРµС‚ РјРёСЂ";
+            string resultStr = "РїСЂРёРІРµС‚ РјРёСЂ";
             Assert.AreEqual(resultStr, RemoveExtraBlanksLib.RemoveExtraBlanks(str));
         }
     }
