@@ -36,7 +36,7 @@ namespace MyNotesTests
         {
             notesStorage.OpenNotes(fileName);
 
-            string text = "привет мир!";
+            string text = "РїСЂРёРІРµС‚ РјРёСЂ!";
             Note newNote = new Note { text=text };
 
             List<Note> notesBefore = notesStorage.GetNotes().ToList<Note>();       
