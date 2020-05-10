@@ -1,3 +1,4 @@
+--1 task. Напишите SQL запросы  для решения задач ниже. 
 CREATE TABLE pc (
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	cpu INTEGER NOT NULL,
@@ -12,17 +13,17 @@ INSERT INTO pc (cpu, memory, hdd) VALUES (2400, 2000, 500);
 
 --1.1 task. Тактовые частоты CPU тех компьютеров, у которых объем памяти 3000 Мб. Вывод: id, cpu, memory
 SELECT id, cpu, memory
-FROM PC
+FROM pc
 WHERE memory = 3000;
 
 --1.2 task. Минимальный объём жесткого диска, установленного в компьютере на складе. Вывод: hdd.
 SELECT MIN(hdd) AS min_hdd
-FROM PC;
+FROM pc;
 
 --1.3 task. Количество компьютеров с минимальным объемом жесткого диска, доступного на складе. Вывод: count, hdd.
 SELECT COUNT(*) AS count, hdd
-FROM PC
-WHERE hdd IN (SELECT MIN(hdd) FROM PC);
+FROM pc
+WHERE hdd IN (SELECT MIN(hdd) FROM pc);
 
 --2 task
 --Напишите SQL-запрос, возвращающий все пары (download_count, user_count), 
