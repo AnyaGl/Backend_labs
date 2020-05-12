@@ -239,9 +239,10 @@ INSERT INTO orders (users_id, status) VALUES (4, 1);
 INSERT INTO orders (users_id, status) VALUES (4, 1);
 
 --Выбрать всех пользователей из таблицы users, у которых ВСЕ записи в таблице orders имеют status = 0
-SELECT *
+SELECT DISTINCT users.users_id, users.name
 FROM users
-WHERE users_id NOT IN ( 
+INNER JOIN orders ON orders.users_id = users.users_id
+WHERE users.users_id NOT IN ( 
 	SELECT users_id
 	FROM orders
 	WHERE status != 0
