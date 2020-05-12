@@ -164,9 +164,38 @@ WHERE student.name = 'Степан';
 --Пример:
 --Когда мы только забронировали номер гостиницы, значение столбца в таблице 
 --бронирования, определяющего конкретную комнату, имеет значение NULL. 
---Предположим, мы забронировали номер "Люкс", но из всех имеющихся номеров "Люкс", 
+--Предположим, мы забронировали номер, но из всех имеющихся номеров, 
 --в каком контретно будем проживать, узнаем только по приезде в гостиницу.
 
+CREATE TABLE room (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	category TEXT NOT NULL,
+	area INTEGER NOT NULL
+);
+
+CREATE TABLE booking (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	room_id INTEGER NULL,
+	checkin_date TEXT NOT NULL,	
+	checkout_date TEXT NOT NULL,	
+	FOREIGN KEY(room_id) REFERENCES room(id)
+);
+
+INSERT INTO room (category, area) VALUES ('Люкс', 123);
+
+-- забронировали номер
+INSERT INTO booking (checkin_date, checkout_date) VALUES (date('2019-10-02'), date('2019-10-12'));
+
+-- значение ячейки room_id равно NULL
+SELECT * FROM booking; 
+
+-- въехали в номер
+UPDATE booking
+SET room_id = 1
+WHERE booking.id = 1;
+
+-- значение ячейки room_id равно 1 (заселились в первый номер)
+SELECT * FROM booking;
 
 --6 task. Как удалить повторяющиеся строки с использованием ключевого слова Distinct? Приведите пример таблиц с данными и запросы. 
 
