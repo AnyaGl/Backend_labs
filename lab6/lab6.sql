@@ -71,6 +71,22 @@ GROUP BY download_count;
 --с учётом часового пояса. TIMESTAMP по умолчанию NOT NULL, и его значение по умолчанию равно NOW(). 
 --Использует 4 байта.
 
+--В базе данных SQLite нет типа данных для хранения даты или времени. 
+--Предполагается хранить дату и время либо в строковом поле, либо в виде числа, т.е. использовать один из трех вариантов:
+--TEXT - Для хранения даты/времени в формате "YYYY-MM-DD HH:MM:SS.SSS"
+--REAL - Для записи даты/времени в виде числа - Юлианского дня
+--INTEGER - Чтобы сохранить дату/время как время Unix (число секунд с 1970-01-01 00:00:00 UTC)
+
+--Для работы с датой и временем SQLite предлагает 5 встроенных функций:
+--date(timestring, modifier, modifier, ...)
+--time(timestring, modifier, modifier, ...)
+--datetime(timestring, modifier, modifier, ...)
+--julianday(timestring, modifier, modifier, ...)
+--strftime(format, timestring, modifier, modifier, ...)
+
+--Пример использования:
+-- SELECT date('now'); текущая дата
+-- SELECT date('now','start of month','+1 month','-1 day'); последний день текущего меясца
 
 --4 task
 --Необходимо создать таблицу студентов (поля id, name) и таблицу курсов (поля id, name). 
