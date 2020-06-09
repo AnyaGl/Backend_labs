@@ -6,7 +6,7 @@ namespace CheckIdentifierTests
     [TestClass]
     public class CheckIdentifierTests
     {
-            [TestMethod]
+        [TestMethod]
         public void IsLetter_NotLatinLetter_FalseReturned()
         {
             Assert.AreEqual(false, CheckIdentifierLib.IsLetter('1'));
