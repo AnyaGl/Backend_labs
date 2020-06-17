@@ -1,0 +1,16 @@
+img
+{
+    height: 200px;
+    background-color: #aaaaaa;
+    color: azure;
+    text-align: center;
+    padding-top: 80px;
+}
+.card-body a
+{
+    margin: 20px 0;
+}
+span
+{
+    font-size: 13px;
+}

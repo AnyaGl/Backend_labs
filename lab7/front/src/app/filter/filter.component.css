@@ -1,0 +1,17 @@
+form
+{
+    width: 60%;
+    margin: 60px auto;
+}
+button
+{
+    margin-top: 10px;
+}
+.form-check-input
+{
+    margin-left: 0;
+}
+.form-check-label
+{
+    margin-left: 2rem;
+}

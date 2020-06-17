@@ -1,0 +1,35 @@
+.container
+{
+    width: 80%;
+    margin: 70px auto;
+}
+
+.image
+{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+img
+{
+    width: 70%;
+    height: 200px;
+    background-color: #aaaaaa;
+    color: azure;
+    text-align: center;
+    padding-top: 80px;
+}
+h3
+{
+    margin: 50px 0;
+}
+span
+{
+    color: black;
+    font-weight: 600;
+}
+ul
+{
+    margin-bottom: 20px;
+}

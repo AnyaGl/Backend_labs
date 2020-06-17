@@ -1,0 +1,9 @@
+form
+{
+    width: 60%;
+    margin: 70px auto;
+}
+.form-control
+{
+    border: 1px solid #ced4da;
+}

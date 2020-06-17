@@ -1,0 +1,16 @@
+header
+{
+    width: 100%;
+    min-height: 8%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1
+{
+    font-size: 1.7rem;
+    color: azure;
+    text-transform: uppercase;
+}

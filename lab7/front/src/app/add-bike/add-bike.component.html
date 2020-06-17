@@ -1,0 +1,45 @@
+<form>
+    <div class="form-group">
+        <label for="inputName">Название:</label>
+        <input type="text" class="form-control" id="inputName">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCost">Цена:</label>
+            <input type="text" class="form-control" id="inputCost">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputPeople">Для кого:</label>
+            <select id="inputPeople" class="form-control">
+                <option  *ngFor="let person of people" [value]="person">
+                    {{person}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputDiameter">Диаметр колес:</label>
+            <input type="text" class="form-control" id="inputDiameter">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputBrand">Бренд:</label>
+            <input type="text" class="form-control" id="inputBrand">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputType">Тип:</label>
+            <input type="text" class="form-control" id="inputType">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Фото:</label>
+            <a href="#" class="btn btn-outline-dark form-control">+</a>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Описание:</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark" routerLink="/">Добавить велосипед</button>
+</form>
