@@ -17,7 +17,7 @@ namespace BLL.Services
         public List<BrandDTO> GetBrands()
         {
             var result = new List<BrandDTO>();
-            var brands = _context.Brands.Include(x => x.Name);
+            var brands = _context.Brands;
             foreach (var brand in brands)
             {
                 result.Add(GetBrand(brand));
@@ -28,6 +28,7 @@ namespace BLL.Services
         {
             return new BrandDTO()
             {
+                Id = brand.Id,
                 Name = brand.Name
             };
         }

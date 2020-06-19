@@ -127,16 +127,16 @@ namespace BLL.Services
             }
             return result;
         }
-        public List<BikeResultDTO> GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, List<int> typeIds)
+        public List<BikeResultDTO> GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, int typeId)
         {
             var result = new List<BikeResultDTO>();
             var bikes = _context.Bikes.Include(x => x.Brand).Include(x => x.Person).Include(x => x.Type).Include(x => x.Photo).ToList();
 
             bikes = bikes.Where(x => x.Price >= minPrice && x.Price <= maxPrice).ToList();
-            bikes = bikes.Where(x => x.Person.Id == personId).ToList();
+            bikes = bikes.Where(x => x.Person.Id == personId || personId == -1).ToList();
             bikes = bikes.Where(x => x.Diameter >= minDiameter && x.Diameter <= maxDiameter).ToList();
-            bikes = bikes.Where(x => x.Brand.Id == brandId).ToList();
-            bikes = bikes.Where(x => typeIds.Contains(x.Type.Id)).ToList();
+            bikes = bikes.Where(x => x.Brand.Id == brandId || brandId == -1).ToList();
+            bikes = bikes.Where(x => x.Type.id == typeId || typeId == -1).ToList();
 
             foreach (var bike in bikes)
             {

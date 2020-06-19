@@ -33,7 +33,7 @@ namespace API.Controllers
             return BadRequest("Ошибка входных данных");
         }
 
-        [HttpGet("get-comments-by-bike-id")]
+        [HttpGet("get-comments-by-bike-id/{bikeId}")]
         public IActionResult GetCommentsByBikeId(int bikeId)
         {
             return Ok(_commentService.GetCommentsByBikeId(bikeId));

@@ -17,7 +17,7 @@ namespace BLL.Services
         public List<TypeDTO> GetTypes()
         {
             var result = new List<TypeDTO>();
-            var types = _context.Types.Include(x => x.Name);
+            var types = _context.Types;
             foreach (var type in types)
             {
                 result.Add(GetType(type));
@@ -28,6 +28,7 @@ namespace BLL.Services
         {
             return new TypeDTO()
             {
+                Id = type.id,
                 Name = type.Name
             };
         }

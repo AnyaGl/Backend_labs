@@ -7,7 +7,7 @@ namespace BLL.Interfaces
     {
         void CreateBike(CreateBikeDTO bike);
         List<BikeResultDTO> GetBikes();
-        List<BikeResultDTO> GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, List<int> typeIds);
+        List<BikeResultDTO> GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, int typeId);
         BikeResultDTO GetBikeById(int id);
     }
 }

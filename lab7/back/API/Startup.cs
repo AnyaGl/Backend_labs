@@ -11,6 +11,7 @@ using Microsoft.OpenApi.Models;
 using System.IO;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Http;
 
 namespace API
 {
@@ -25,7 +26,7 @@ namespace API
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(); ;
             services.AddDbContext<DBContext>(builder =>
                 builder.UseSqlite(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("API")));
             
@@ -43,6 +44,7 @@ namespace API
                     Version = "1.0"
                 });
             });
+            services.AddCors();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -67,16 +69,19 @@ namespace API
                 Directory.CreateDirectory(path);
             }
 
-            /*var provider = new FileExtensionContentTypeProvider();*/
+            var provider = new FileExtensionContentTypeProvider();
 
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(path),
-                RequestPath = "/images",
-                ContentTypeProvider = new FileExtensionContentTypeProvider()
+                RequestPath = new PathString("/images"),
+                ContentTypeProvider = provider
             });
 
             app.UseRouting();
+            app.UseCors(b => b.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

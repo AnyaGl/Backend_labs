@@ -2,7 +2,6 @@
 using BLL.Interfaces;
 using DAL;
 using DAL.Entities;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace BLL.Services
@@ -17,7 +16,7 @@ namespace BLL.Services
         public List<PersonDTO> GetPeople()
         {
             var result = new List<PersonDTO>();
-            var people = _context.People.Include(x => x.Type);
+            var people = _context.People;
             foreach (var person in people)
             {
                 result.Add(GetPerson(person));
@@ -28,6 +27,7 @@ namespace BLL.Services
         {
             return new PersonDTO()
             {
+                Id = person.Id,
                 Type = person.Type
             };
         }

@@ -17,7 +17,7 @@ namespace API.Controllers
         }
 
         [HttpPost("create-bike")]
-        public IActionResult CreateBike(/*[FromForm]*/CreateBikeDTO bike)
+        public IActionResult CreateBike([FromForm]CreateBikeDTO bike)
         {
             if (ModelState.IsValid)
             {
@@ -41,9 +41,9 @@ namespace API.Controllers
         }
 
         [HttpGet("get-bikes-by-filter")]
-        public IActionResult GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, List<int> typeIds)
+        public IActionResult GetBikesByFilter(int minPrice, int maxPrice, int personId, int minDiameter, int maxDiameter, int brandId, int typeId)
         {
-            return Ok(_bikeService.GetBikesByFilter(minPrice, maxPrice, personId, minDiameter, maxDiameter, brandId, typeIds));
+            return Ok(_bikeService.GetBikesByFilter(minPrice, maxPrice, personId, minDiameter, maxDiameter, brandId, typeId));
         }
 
         [HttpGet("get-bike-by-id/{id}")]
