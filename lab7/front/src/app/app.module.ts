@@ -1,8 +1,9 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
-
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent }  from './app.component';
 import { MainContainerComponent } from './main-container/main-container.component';
@@ -14,18 +15,22 @@ import { AddCardComponent } from './add-card/add-card.component';
 import { BikeDescriptionComponent } from './bike-description/bike-description.component';
 import { CommentsComponent } from './comments/comments.component';
 import { AddBikeComponent } from './add-bike/add-bike.component';
+import { AddCommentComponent } from './add-comment/add-comment.component'
 
 const routes: Routes = [
     {path: '', component: MainContainerComponent},
     {path: 'add-bike', component: AddBikeComponent},
-    {path: 'description', component: BikeDescriptionComponent}
+    {path: 'description/:id', component: BikeDescriptionComponent}
 ];
 
 @NgModule({
     imports: [
+        CommonModule,
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot(routes, {useHash: true})
+        RouterModule.forRoot(routes, {useHash: true}),
+        HttpClientModule,
+        ReactiveFormsModule
     ],
     declarations: [
         AppComponent,
@@ -37,7 +42,8 @@ const routes: Routes = [
         AddCardComponent,
         BikeDescriptionComponent,
         CommentsComponent,
-        AddBikeComponent
+        AddBikeComponent,
+        AddCommentComponent
     ],
     bootstrap: [
         AppComponent

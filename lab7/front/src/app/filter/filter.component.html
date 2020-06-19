@@ -4,19 +4,19 @@
             <label>Цена:</label>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <input type="text" class="form-control" id="inputCostFrom" placeholder="от:" />
+                    <input [(ngModel)]="minPrice" name="minPrice" type="text" class="form-control" id="inputCostFrom" placeholder="от:" />
                 </div>
                 <div class="form-group col-md-5">
-                    <input type="text" class="form-control" id="inputCostTo" placeholder="до:" />
+                    <input  [(ngModel)]="maxPrice" name="maxPrice" type="text" class="form-control" id="inputCostTo" placeholder="до:" />
                 </div>
             </div>
         </div>
         <div class="form-group col-md-6">
             <label>Для кого:</label>
-            <select class="form-control" name="company">
-                <option>Любой</option>
-                <option  *ngFor="let person of people" [value]="person">
-                    {{person}}
+            <select class="form-control" name="company" [(ngModel)]="personId">
+                <option [ngValue]=-1>Любой</option>
+                <option  *ngFor="let person of people" [ngValue]="person.id">
+                    {{person.type}}
                 </option>
             </select>
         </div>
@@ -26,32 +26,34 @@
             <label>Диаметр колес:</label>
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <input type="text" class="form-control" id="inputDiameterFrom" placeholder="от:" />
+                    <input [(ngModel)]="minDiameter" name="minDiameter" type="text" class="form-control" id="inputDiameterFrom" placeholder="от:" />
                 </div>
                 <div class="form-group col-md-5">
-                    <input type="text" class="form-control" id="inputDiameterTo" placeholder="до:" />
+                    <input [(ngModel)]="maxDiameter" name="maxDiameter" type="text" class="form-control" id="inputDiameterTo" placeholder="до:" />
                 </div>
             </div>
         </div>
         <div class="form-group col-md-6">
             <label>Бренд:</label>
-            <select class="form-control" name="company">
-                <option>Любой</option>
-                <option  *ngFor="let brand of brands" [value]="brand">
-                    {{brand}}
+            <select class="form-control" name="company" [(ngModel)]="brandId">
+                <option [ngValue]=-1>Любой</option>
+                <option  *ngFor="let brand of brands" [ngValue]="brand.id">
+                    {{brand.name}}
                 </option>
             </select>
         </div>
     </div>
-    <label>Тип:</label>
     <div class="form-row">
-        <div class="form-group col-md-4 form-check" *ngFor="let bikeType of bikeTypes" [id]="bikeType">
-            <input class="form-check-input" type="checkbox" [id]="bikeType" />
-            <label class="form-check-label" [for]="bikeType">
-                {{bikeType}}
-            </label>
+        <div class="form-group col-md-12">
+            <label>Тип:</label>
+            <select class="form-control" name="company" [(ngModel)]="typeId">
+                <option [ngValue]=-1>Любой</option>
+                <option  *ngFor="let bikeType of bikeTypes" [ngValue]="bikeType.id">
+                    {{bikeType.name}}
+                </option>
+            </select>
         </div>
     </div>
-    <button type="submit" class="btn btn-dark">Подобрать</button>
+    <button type="submit" class="btn btn-dark" (click)="findBikesByFilter()">Подобрать</button>
 </form>
 

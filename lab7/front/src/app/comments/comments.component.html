@@ -1,22 +1,13 @@
 <div class="comments-container">
-    <h5>Отзывы: </h5>
-    <form>
-        <div class="form-group">
-            <label for="nameInput">Ваше имя:</label>
-            <input type="text" class="form-control" id="nameInput">
-        </div>
-        <div class="form-group">
-            <label for="comment">Комментарий:</label>
-            <textarea class="form-control" id="comment" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark">Отправить</button>
-    </form>
+    <h5>Отзывы:</h5>
+    <app-add-comment (update)="onUpdate()"></app-add-comment>
     <div class="comments">
-    <div *ngFor="let comment of comments">
-        <h6>имя</h6>
-        <div class="comment">
-            {{comment}}
+        <h5 *ngIf="comments.length == 0">Никто еще не оставлял отзывы</h5>
+        <div *ngFor="let comment of comments">
+            <h6>{{comment.name}}</h6>
+            <div class="comment">
+                {{comment.text}}
+            </div>
         </div>
-    </div>
     </div>
 </div>

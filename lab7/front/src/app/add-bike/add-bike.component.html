@@ -1,18 +1,18 @@
-<form>
+<form [formGroup]="form">
     <div class="form-group">
         <label for="inputName">Название:</label>
-        <input type="text" class="form-control" id="inputName">
+        <input type="text" class="form-control" id="inputName" formControlName="name">
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputCost">Цена:</label>
-            <input type="text" class="form-control" id="inputCost">
+            <label for="inputPrice">Цена:</label>
+            <input type="text" class="form-control" id="inputPrice" formControlName="price" placeholder="26000">
         </div>
         <div class="form-group col-md-6">
             <label for="inputPeople">Для кого:</label>
-            <select id="inputPeople" class="form-control">
-                <option  *ngFor="let person of people" [value]="person">
-                    {{person}}
+            <select id="inputPeople" class="form-control" formControlName="person">
+                <option  *ngFor="let person of people" [value]="person.id">
+                    {{person.type}}
                 </option>
             </select>
         </div>
@@ -20,26 +20,27 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputDiameter">Диаметр колес:</label>
-            <input type="text" class="form-control" id="inputDiameter">
+            <input type="text" class="form-control" id="inputDiameter" formControlName="diameter" placeholder="26,0">
         </div>
         <div class="form-group col-md-6">
             <label for="inputBrand">Бренд:</label>
-            <input type="text" class="form-control" id="inputBrand">
+            <input type="text" class="form-control" id="inputBrand" formControlName="brand">
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputType">Тип:</label>
-            <input type="text" class="form-control" id="inputType">
+            <input type="text" class="form-control" id="inputType" formControlName="type" >
         </div>
         <div class="form-group col-md-6">
             <label>Фото:</label>
-            <a href="#" class="btn btn-outline-dark form-control">+</a>
+            <input type="file" hidden="true" id="file_uploader">
+            <a (click)="uploadFile()" class="btn btn-outline-dark form-control">+</a>
         </div>
     </div>
     <div class="form-group">
         <label for="description">Описание:</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
+        <textarea class="form-control" id="description" rows="3" formControlName="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-dark" routerLink="/">Добавить велосипед</button>
+    <button type="submit" class="btn btn-dark" [disabled]="this.form.invalid" (click)="addBike()" routerLink="/">Добавить велосипед</button>
 </form>

@@ -1,29 +1,23 @@
-<div class="container">
+<div class="container" *ngIf="bike">
     <div class="row">
         <div class="image col-md-6">
-            <img alt="Изображение не найдено">
+            <img [src]="imgPath + bike.photo" alt="Изображение не найдено" />
         </div>
         <div class="features col-md-6">
-            <h3>Название велосипеда</h3>
+            <h3>{{bike.name}}</h3>
             <h5>Характеристики:</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item"><span>Тип: </span>Горный</li>
-                <li class="list-group-item"><span>Для кого: </span>Мужской</li>
-                <li class="list-group-item"><span>Бренд: </span>Stels</li>
-                <li class="list-group-item"><span>Диаметр колес: </span>15</li>
-                <li class="list-group-item"><span>Цена: </span>12000</li>
+                <li class="list-group-item"><span>Тип: </span>{{bike.type}}</li>
+                <li class="list-group-item"><span>Для кого: </span>{{bike.person}}</li>
+                <li class="list-group-item"><span>Бренд: </span>{{bike.brand}}</li>
+                <li class="list-group-item"><span>Диаметр колес: </span>{{bike.diameter}}</li>
+                <li class="list-group-item"><span>Цена: </span>{{bike.price}}</li>
             </ul>
         </div>
     </div>
     <h5>Описание:</h5>
     <p>
-        Комфортный велосипед Electra Townie Original 1 Mens (2020) порадует вас хорошей управляемостью.
-        Практичная жёсткая вилка High Tensile Steel Uni-Crown, Straight/Tapered Leg проста в обслуживании.
-        Конструкция оснащена эргономичной системой Forged Alloy 170mm. Мощная алюминиевая рама Townie 6061-T6
-        Alloy Flat Foot Technology® отлично выдерживает нагрузки при активном катании. Универсальное широкое
-        седло Ergonomic w/Shock-Absorbing Elastomers позволит избежать дискомфорта и натирания. Колеса с
-        покрышками Semi-Slick Street 26" X 2.0" – достаточно прочные и динамичные, идеальны для увлекательного
-        катания в городе и за городом.
+        {{bike.description}}
     </p>
 </div>
 <app-comments></app-comments>

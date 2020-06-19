@@ -1,4 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { ImageApi } from '../shared/config';
+import { BikeModel } from '../shared/models/bike.model';
+import { ActivatedRoute } from '@angular/router';
+import { BikeService } from '../shared/services/bike.service';
 
 @Component({
     selector: 'app-bike-description',
@@ -6,5 +10,15 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./bike-description.component.css']
 })
 export class BikeDescriptionComponent{
-    //@Input() bike: string;
+    imgPath = ImageApi;
+    bike: BikeModel;
+
+    constructor(private route: ActivatedRoute, private bikeService: BikeService)
+    {
+        this.route.params.subscribe(params => {
+            this.bikeService.GetBikeById(params["id"]).subscribe(bike => {
+                this.bike = bike;
+            })
+        });
+    }
 }

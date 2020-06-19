@@ -2,7 +2,7 @@
     <h3 *ngIf="bikes.length == 0">По данному запросу велосипеды не найдены</h3>
     <div class="card-catalog row row-cols-1 row-cols-md-3">
         <div class="col mb-4" *ngFor="let bike of bikes">
-            <app-card></app-card>
+            <app-card [bike]="bike"></app-card>
         </div>
         <div class="col mb-4">
             <app-add-card></app-add-card>

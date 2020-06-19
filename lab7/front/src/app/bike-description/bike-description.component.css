@@ -15,10 +15,11 @@ img
 {
     width: 70%;
     height: 200px;
+    max-width: 360px;
+    margin: auto;
     background-color: #aaaaaa;
     color: azure;
     text-align: center;
-    padding-top: 80px;
 }
 h3
 {

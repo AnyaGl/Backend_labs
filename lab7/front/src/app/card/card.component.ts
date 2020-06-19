@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { BikeModel } from '../shared/models/bike.model';
+import { ImageApi } from '../shared/config'
 
 @Component({
     selector: 'app-card',
@@ -6,5 +8,6 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-    //@Input() bike: string;
+    @Input() bike: BikeModel;
+    imgPath = ImageApi;
 }

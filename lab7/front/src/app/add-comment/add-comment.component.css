@@ -1,0 +1,10 @@
+form
+{
+    margin-top: 30px;
+    min-width: 450px;
+    width: 50%;
+}
+textarea
+{
+    resize: none;
+}
